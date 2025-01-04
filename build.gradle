@@ -1,0 +1,40 @@
+buildscript {
+    ext {
+        seleniumVersion = '4.27.0'
+        testngVersion = '7.10.2'
+        apacheCommonsVersion = '3:17.0'
+        slf4jSimpleVersion = '2.0.16'
+        apacheLogging4jVersion = '2.24.3'
+        allureVersion = '2.29.1'
+        webDriverManagerVersion = '5.9.2'
+        javaFakerVersion = '1.0.2'
+        lombokVersion = '1.18.36'
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+group = 'app.bumblebee'
+version = '1.0-SNAPSHOT'
+
+dependencies {
+    testImplementation "org.apache.commons:commons-lang${apacheCommonsVersion}"
+    testImplementation "io.qameta.allure:allure-testng:${allureVersion}"
+    testImplementation "org.slf4j:slf4j-simple:${slf4jSimpleVersion}"
+    testImplementation "org.apache.logging.log4j:log4j-core:${apacheLogging4jVersion}"
+    implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+    implementation "com.github.javafaker:javafaker:${javaFakerVersion}"
+    implementation "org.testng:testng:${testngVersion}"
+    implementation "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+}
+
+test {
+    useTestNG()
+}
