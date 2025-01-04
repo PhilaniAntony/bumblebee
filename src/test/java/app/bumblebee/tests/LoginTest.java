@@ -1,15 +1,19 @@
 package app.bumblebee.tests;
 
-import app.bumblebee.pages.BasePage;
 import app.bumblebee.pages.LoginPage;
 import app.bumblebee.pages.ProductsPage;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import jdk.jfr.Description;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
+@Epic("User Management")
+@Feature("User Login")
+@Story("User Login Endpoint")
 @Test
 public class LoginTest extends BaseTest {
 

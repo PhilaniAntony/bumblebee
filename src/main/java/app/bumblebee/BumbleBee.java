@@ -20,8 +20,6 @@ public class BumbleBee {
         config = new Config(loader.getProperties());
     }
 
-
-
     public void setupWebDriver(String browserName) {
 
         switch (browserName) {
