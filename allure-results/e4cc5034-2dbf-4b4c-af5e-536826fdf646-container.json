@@ -1,1 +1,0 @@
-{"uuid":"e4cc5034-2dbf-4b4c-af5e-536826fdf646","name":"bumblebee","children":["7c7bfe67-7963-4b64-9ab8-03a653da96d0"],"befores":[],"afters":[{"name":"tearDown","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1736012227242,"stop":1736012227446}],"start":1736012222086,"stop":1736012227446}
