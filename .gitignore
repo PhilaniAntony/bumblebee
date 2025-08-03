@@ -5,10 +5,14 @@ build/
 !**/src/test/**/build/
 
 ### IntelliJ IDEA ###
+.idea
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.idea/sonarlint/
+.idea/sonarlint/issuestore/
+.idea/sonarlint/securityhotspotstore/
 *.iws
 *.iml
 *.ipr
@@ -43,3 +47,4 @@ bin/
 bee.properties
 allure-results/
 allure-results
+out
