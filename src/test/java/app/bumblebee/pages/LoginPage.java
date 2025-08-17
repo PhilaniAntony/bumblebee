@@ -7,14 +7,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage{
 
-    @FindBy(id = "user-name")
+    @FindBy(id = "username")
     public WebElement usernameField;
     @FindBy(id = "password")
     public WebElement passwordField;
-    @FindBy(id = "login-button")
+    @FindBy(id = "login")
     public WebElement loginButton;
-    @FindBy(css = "[data-test='error']")
-    public WebElement loginError;
+    @FindBy(className = "auth_error")
+    public WebElement authError;
+    @FindBy(id = "username_span")
+    public WebElement usernameSpan;
+    @FindBy(id = "password_span")
+    public WebElement passwordSpan;
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -34,6 +38,10 @@ public class LoginPage extends BasePage{
     }
 
     public boolean hasLoginErrorDisplayed() {
-        return wait.until(ExpectedConditions.visibilityOf(loginError)).isDisplayed();
+        return wait.until(ExpectedConditions.visibilityOf(authError)).isDisplayed();
+    }
+
+    public String getLoginError(WebElement element) {
+        return wait.until(ExpectedConditions.visibilityOf(element)).getText();
     }
 }

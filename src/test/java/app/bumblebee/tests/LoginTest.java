@@ -9,6 +9,7 @@ import jdk.jfr.Description;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 @Epic("User Management")
@@ -37,5 +38,17 @@ public class LoginTest extends BaseTest {
     public void invalidLoginTest(String username, String password) {
         loginPage.invalidLogin(username, password);
         assertTrue(loginPage.hasLoginErrorDisplayed());
+    }
+
+    @Description("As a Web client, I should not be able to login without username.")
+    public void loginWithoutUsername() {
+        loginPage.invalidLogin("", config.getPassword());
+        assertEquals(loginPage.getLoginError(loginPage.usernameSpan), "Enter Username");
+    }
+
+    @Description("As a Web client, I should not be able to login without password.")
+    public void loginWithoutPassword() {
+        loginPage.invalidLogin(config.getUsername(), "");
+        assertEquals(loginPage.getLoginError(loginPage.passwordSpan), "Enter Password");
     }
 }

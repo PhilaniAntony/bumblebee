@@ -36,9 +36,14 @@ public class BaseTest {
     public Object[][] invalidLoginCredentials() {
         return new Object[][]{
                 {"username", "password"},
-                {"username", ""},
-                {"", "password"},
-                {"", ""}
+        };
+    }
+
+    @DataProvider(name = "citiesList")
+    public static Object[][] getCityData() {
+        return new Object[][]{
+                {"Sydney"},
+                {"London"}
         };
     }
 }

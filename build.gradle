@@ -13,6 +13,7 @@ buildscript {
 }
 
 plugins {
+    id 'io.qameta.allure' version '2.11.2'
     id 'java'
 }
 
@@ -24,17 +25,27 @@ group = 'app.bumblebee'
 version = '1.0-SNAPSHOT'
 
 dependencies {
-    testImplementation "org.apache.commons:commons-lang3:${apacheCommonsVersion}"
-    testImplementation "io.qameta.allure:allure-testng:${allureVersion}"
-    testImplementation "org.slf4j:slf4j-simple:${slf4jSimpleVersion}"
-    testImplementation "org.apache.logging.log4j:log4j-core:${apacheLogging4jVersion}"
     implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
     implementation "com.github.javafaker:javafaker:${javaFakerVersion}"
     implementation "org.testng:testng:${testngVersion}"
-    implementation "org.projectlombok:lombok:${lombokVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
     testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testImplementation "org.apache.commons:commons-lang3:${apacheCommonsVersion}"
+    testImplementation "org.slf4j:slf4j-simple:${slf4jSimpleVersion}"
+    testImplementation "org.apache.logging.log4j:log4j-core:${apacheLogging4jVersion}"
+    testImplementation "io.qameta.allure:allure-testng:${allureVersion}"
 }
 
 test {
-    useTestNG()
+    useTestNG() {
+    }
+    include '**/*Test.class'
+    reports.html.required.set(true)
+    reports.junitXml.required.set(true)
+}
+
+allure {
+    version = "${allureVersion}"
 }

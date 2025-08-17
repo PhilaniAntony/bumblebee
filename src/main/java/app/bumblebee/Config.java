@@ -14,7 +14,7 @@ public class Config {
     private final String isRemoteWebDriver;
     private final Properties properties;
 
-    Config(Properties properties) {
+    public Config(Properties properties) {
         this.properties = properties;
         this.url = properties.getProperty("test.url");
         this.username = properties.getProperty("test.username");
